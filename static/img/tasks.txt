@@ -1,0 +1,7 @@
+
+about us wgera khtm krna hai
+sb main preloader add krna hai
+logo k sath nadra likhna hai header main
+sb ka background same krna hai
+sbka titles change krna hai
+sbki office timinig dropdown thik krna hai
