@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html style="overflow-x: hidden;">
+<head>
+<meta charset="utf-8"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+<title>Domicile - National Database & Registration Authority </title>
+ <link href="../static/img/simple.ico" rel="icon">
+  <link href="../static/img/simple.ico" rel="apple-touch-icon">
+
+<link rel="stylesheet" type="text/css" href="bootstrap\css\bootstrap.min.css"/>
+<script type="text/javascript" src="bootstrap\js\bootstrap.min.js"></script>
+
+<link rel="stylesheet" type="text/css" id="applicationStylesheet" href="../static/css/domicile.css"/>
+</head>
+<header>
+  <nav class="navbar navbar-expand-sm bg-dark navbar-dark nav-upper" style="opacity: 0.9;">
+  <a href="index.html" class="navbar-brand " > <img src="../static/img/nadra_logo.png" alt="Logo" style="width:60px;"></a>
+
+
+   <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link active">Welcome Administrator</a>
+      </li>
+
+    </ul>
+    <ul class="navbar-nav ml-auto">
+            <li class="nav-item dropdown active">
+        <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-4" data-toggle="dropdown"
+          aria-haspopup="true" aria-expanded="false">
+          <img src="../static/img/profile1.png" style="max-width: 2.5vw; max-height: auto"> Administrator </a>
+        <div class="dropdown-menu dropdown-menu-right dropdown-info" aria-labelledby="navbarDropdownMenuLink-4">
+          <a class="dropdown-item" href="/log-out">Log out</a>
+        </div>
+      </li>
+    </ul>
+
+  </nav>
+</header>
+<body>
+
+
+<div>
+
+<nav class="navbar-default navbar-expand-xl bg-dark navbar-dark navbar-static-top navbar-lower">
+
+  <!-- Links -->
+  <ul class="navbar-nav">
+
+    <li class="nav-item" style="padding-right: 25px; padding-left: 50px;">
+      <a class="nav-link" href="administratorWelcome.html" target="_self">Home</a>
+    </li>
+    <li class="nav-item" style="padding-right: 25px;">
+      <a class="nav-link" target="_self" href="AddUser.html">Add User</a>
+      </li>
+    <li class="nav-item" style="padding-right: 25px;">
+      <a class="nav-link" target="_self" href="/userData">Total Users</a>
+      </li>
+     <li class="nav-item dropdown" style="padding-right: 25px;">
+      <a class="nav-link dropdown-toggle" href="#" id="Identify" data-toggle="dropdown">
+        Issue
+      </a>
+      <div class="dropdown-menu" labelledby="Identify">
+        <a class="dropdown-item" target="_self" href="/userForIssueBC">Birth Certificate</a>
+        <a class="dropdown-item" target="_self" href="/userForIssueCNIC">ÇNIC</a>
+        <a class="dropdown-item" target="_self" href="/userForIssueD">Domicile</a>
+        <a class="dropdown-item" target="_self" href="/userForIssueDC">Death Certificate</a>
+      </div>
+    </li>
+     <li class="nav-item dropdown" style="padding-right: 25px;">
+      <a class="nav-link dropdown-toggle" href="#" id="Identify" data-toggle="dropdown">
+        Update
+      </a>
+      <div class="dropdown-menu" labelledby="Identify">
+        <a class="dropdown-item" target="_self" href="/userForUpdateBC">Birth Certificate</a>
+        <a class="dropdown-item" target="_self" href="/userForUpdateCNIC">ÇNIC</a>
+        <a class="dropdown-item" target="_self" href="/userForUpdateD">Domicile</a>
+        <a class="dropdown-item" target="_self" href="/userForUpdateDC">Death Certificate</a>
+      </div>
+    </li>
+<li class="nav-item" style="padding-right: 25px;">
+      <a class="nav-link" target="_self" href="/delete_User">Delete User</a>
+      </li>
+<li class="nav-item" style="padding-right: 25px;">
+      <a class="nav-link" target="_self" href="/viewRecords">View Records</a>
+      </li><li class="nav-item" style="padding-right: 25px;">
+      <a class="nav-link" target="_self" href="/checkFeedbacks">Check Messages</a>
+      </li>
+  </ul>
+</nav>
+</div>
+
+<div class="container" style="position: relative; margin-top: 150px">
+  <form>
+
+
+	<div class="row">
+
+      <div class="col-25" style="padding-left: 3%">
+  			<img src="../static/img/logo1.png" style="width:100px; padding-left: 10%">
+      	</div>
+
+      <div class="col-50" style="padding-left: 10%; padding-top: 3%">
+      	<h5><b>Undersection of Pakistan Citizenship Rules</b><br>
+      	Pakistan Citizenship Act. 1945113687 Of 1951
+      	</h5>
+      </div>
+
+        <div style="padding-left: 15%; padding-top: 3%">
+        	<small>
+        		<b>No. </b>LHR-12-111-768<br>
+        		<b>Date: </b>{{dateOfIssue}}
+        	</small>
+      	</div>
+    </div>
+            <div class="row" style="width: 100%">
+    	<h2 style="padding-left: 35%"><br><u><b>Certificate Of Domicile</b></u></h2>
+    </div>
+
+    <div class="row" style="width: 100%; padding-left: 15%; padding-right: 15%">
+    	<small><br><br>
+    		Whereas <input type="text" value="{{name}}" style="width: 44%" readonly> S/O <input type="text" style="width: 44%" value="{{fatherName}}" readonly>
+    		has applied for the grant of certificate of domicile under Pakistan Citizenship Act. 1945113687 alleging
+    		with respect to himself/herself the particulars setout below and has satisfied the undersigned that the conditions laid down inSection 17 of said Act for the grant of a Certificate of Domicile are fulfilled in the said
+    		<input type="text" value="{{name}}" style="width: 44%" readonly>.
+    	</small>
+    </div>
+
+
+
+    <div class="row">
+    	<div class="col-50" style="padding-left: 22%; padding-top: 12%;">
+    		<small>
+        		<b>Date: </b>{{dateOfIssue}}
+        	</small>
+    	</div>
+    	<div class="col-50" style="padding-left: 28%;  padding-top: 7%;">
+    		<small>
+    			<img src="../static/img/sign.png" style="width:120px; padding-left: 10%; background-color: #d7f5d5;"><br>
+        		<b>Signature of deputy Commissioner</b>
+        	</small>
+    	</div>
+    </div>
+
+     <div class="row" style="width: 100%; padding-top: 3%" >
+    	<h2 style="padding-left: 25%"><br>Full Particulars Relating To The Applicant</h2>
+    </div>
+
+    <div class="row" style="padding-top: 3%">
+    </div></br>
+
+    <div class="row">
+      <div class="col-25">
+        <label for="whereas">Full Name</label>
+      </div>
+      <div class="col-75">
+        <input type="text" value="{{name}}" readonly>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-25">
+        <label for="s/o">S/O</label>
+      </div>
+      <div class="col-75">
+        <input type="text" value="{{fatherName}}" readonly>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-25">
+        <label for="address">Address in Pakistan</label>
+      </div>
+      <div class="col-75">
+        <input type="text" value="{{address}}" readonly>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-25">
+        <label for="place">Place of Domicile</label>
+      </div>
+      <div class="col-75">
+        <input type="text" value="{{placeOfDomicile}}" readonly>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-25">
+        <label for="tehsile">(Domicile)Tehsil</label>
+      </div>
+      <div class="col-75">
+        <input type="text" value="{{tehsil}}" readonly>
+      </div>
+    </div>
+
+<div class="row">
+      <div class="col-25">
+        <label for="district">District</label>
+      </div>
+      <div class="col-75">
+        <input type="text" value="{{district}}" readonly>
+      </div>
+    </div>
+
+
+<div class="row">
+      <div class="col-25">
+        <label for="province">Province</label>
+      </div>
+      <div class="col-75">
+        <input type="text" value="{{province}}" readonly>
+      </div>
+    </div>
+
+<div class="row">
+      <div class="col-25">
+        <label for="status">Maritial Status</label>
+      </div>
+      <div class="col-75">
+        <input type="text" value="{{maritualStatus}}" readonly>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-25">
+        <label for="student">Student</label>
+      </div>
+      <div class="col-75">
+        <input type="text" value="{{isStudent}}" readonly>
+      </div>
+    </div>
+
+     <div class="row">
+      <div class="col-25">
+        <label for="occupation">Occupation or Trade</label>
+      </div>
+      <div class="col-75">
+        <input type="text" value="{{occupation}}" readonly>
+      </div>
+    </div>
+
+     <div class="row">
+      <div class="col-25">
+        <label for="mark">Mark Of Identification</label>
+      </div>
+      <div class="col-75">
+        <input type="text" value="{{markOfIndication}}" readonly>
+      </div>
+    </div><br>
+
+    <div class="row" style="padding-left: 5%">
+    	<h5><b>No. </b>{{number}}<br></h5>
+    </div><br>
+
+  </form>
+</div><br><br>
+
+</body>
+
+
+
+
+<footer>
+  <div id="media">
+  <nav class="navbar fixed-bottom navbar-expand-sm bg-transparent navbar-dark" >
+   <ul class="navbar-nav ml-auto">
+            <li class="nav-item">     
+          <a href="#" class="fa fa-facebook"></a>
+            </li>
+            <li class="nav-item">
+            <a href="#" class="fa fa-twitter"></a>
+            </li>
+            <li class="nav-item">
+            <a href="#" class="fa fa-google"></a>
+            </li>
+    </ul>
+  </nav>
+</div>
+</footer>
+</html>

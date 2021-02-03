@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html style="overflow-x: hidden;">
+<head>
+<meta charset="utf-8"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+<title>Birth Certificate - National Database & Registration Authority </title>
+ <link href="../static/img/simple.ico" rel="icon">
+  <link href="../static/img/simple.ico" rel="apple-touch-icon">
+
+<link rel="stylesheet" type="text/css" href="bootstrap\css\bootstrap.min.css"/>
+<script type="text/javascript" src="bootstrap\js\bootstrap.min.js"></script>
+
+<link rel="stylesheet" type="text/css" id="applicationStylesheet" href="../static/css/BirthCertificate.css"/>
+</head>
+
+<header>
+  <nav class="navbar navbar-expand-sm bg-dark navbar-dark nav-upper" style="opacity: 0.9;">
+  <a href="index.html" class="navbar-brand " > <img src="../static/img/nadra_logo.png" alt="Logo" style="width:60px;"></a>
+
+
+   <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link active">Welcome Administrator</a>
+      </li>
+
+    </ul>
+    <ul class="navbar-nav ml-auto">
+            <li class="nav-item dropdown active">
+        <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-4" data-toggle="dropdown"
+          aria-haspopup="true" aria-expanded="false">
+          <img src="../static/img/profile1.png" style="max-width: 2.5vw; max-height: auto"> Administrator </a>
+        <div class="dropdown-menu dropdown-menu-right dropdown-info" aria-labelledby="navbarDropdownMenuLink-4">
+          <a class="dropdown-item" href="/log-out">Log out</a>
+        </div>
+      </li>
+    </ul>
+
+  </nav>
+</header>
+<body>
+
+
+<div>
+
+<nav class="navbar-default navbar-expand-xl bg-dark navbar-dark navbar-static-top navbar-lower">
+
+  <!-- Links -->
+  <ul class="navbar-nav">
+
+    <li class="nav-item" style="padding-right: 25px; padding-left: 50px;">
+      <a class="nav-link" href="administratorWelcome.html" target="_self">Home</a>
+    </li>
+    <li class="nav-item" style="padding-right: 25px;">
+      <a class="nav-link" target="_self" href="AddUser.html">Add User</a>
+      </li>
+    <li class="nav-item" style="padding-right: 25px;">
+      <a class="nav-link" target="_self" href="/userData">Total Users</a>
+      </li>
+     <li class="nav-item dropdown" style="padding-right: 25px;">
+      <a class="nav-link dropdown-toggle" href="#" id="Identify" data-toggle="dropdown">
+        Issue
+      </a>
+      <div class="dropdown-menu" labelledby="Identify">
+        <a class="dropdown-item" target="_self" href="/userForIssueBC">Birth Certificate</a>
+        <a class="dropdown-item" target="_self" href="/userForIssueCNIC">ÇNIC</a>
+        <a class="dropdown-item" target="_self" href="/userForIssueD">Domicile</a>
+        <a class="dropdown-item" target="_self" href="/userForIssueDC">Death Certificate</a>
+      </div>
+    </li>
+     <li class="nav-item dropdown" style="padding-right: 25px;">
+      <a class="nav-link dropdown-toggle" href="#" id="Identify" data-toggle="dropdown">
+        Update
+      </a>
+      <div class="dropdown-menu" labelledby="Identify">
+        <a class="dropdown-item" target="_self" href="/userForUpdateBC">Birth Certificate</a>
+        <a class="dropdown-item" target="_self" href="/userForUpdateCNIC">ÇNIC</a>
+        <a class="dropdown-item" target="_self" href="/userForUpdateD">Domicile</a>
+        <a class="dropdown-item" target="_self" href="/userForUpdateDC">Death Certificate</a>
+      </div>
+    </li>
+<li class="nav-item" style="padding-right: 25px;">
+      <a class="nav-link" target="_self" href="/delete_User">Delete User</a>
+      </li>
+<li class="nav-item" style="padding-right: 25px;">
+      <a class="nav-link" target="_self" href="/viewRecords">View Records</a>
+      </li><li class="nav-item" style="padding-right: 25px;">
+      <a class="nav-link" target="_self" href="/checkFeedbacks">Check Messages</a>
+      </li>
+  </ul>
+</nav>
+</div>
+
+<div class="container" style="position: relative; margin-top: 150px">
+  <form>
+	<div class="row">
+
+      <div class="col-25" style="padding-left: 3%">
+  			<img src="../static/img/logo1.png" style="width:100px; padding-left: 10%">
+      	</div>
+
+      <div class="col-50" style="padding-left: 10%; padding-top: 3%">
+      	<h5><b>Undersection of Pakistan Citizenship Rules</b><br>
+      	Pakistan Citizenship Act. 1945113687 Of 1951
+      	</h5>
+      </div>
+
+        <div style="padding-left: 15%; padding-top: 3%">
+        	<small>
+        		<b>No. </b>LHR-12-111-768<br>
+        		<b>Date: </b>{{doi}}
+        	</small>
+      	</div>
+    </div>
+            <div class="row" style="width: 100%">
+    	<h2 style="padding-left: 40%"><br><u><b>Birth Certificate</b></u></h2>
+    </div>
+
+
+
+    <div class="row">
+    	<div class="col-50" style="padding-left: 22%; padding-top: 7%;">
+    		<small>
+        		<b> CRMS NO: B12344D3-32-5357 </b>
+        	</small>
+    	</div>
+    	<div class="col-50" style="padding-left: 28%;  padding-top: 7%;">
+    		<small>
+        		<b>FORM N0: 1223AB3</b>
+        	</small>
+    	</div>
+    </div>
+
+
+    <div class="row" style="padding-top: 3%">
+    </div></br>
+
+
+    <div class="row">
+      <div class="col-25">
+        <label for="candidateName">Name Of Candidata</label>
+      </div>
+      <div class="col-75">
+        <input type="text" value="{{candidateName}}" readonly>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-25">
+        <label for="relation">Relation</label>
+      </div>
+      <div class="col-75">
+        <input type="text" value="{{relation}}" readonly>
+      </div>
+    </div><br><br>
+
+    <div>
+    <table>
+  <tr>
+    <th>CHILD NAME</th>
+    <th>FATHER NAME</th>
+      <th>MOTHER NAME</th>
+      <th>GENDER</th>
+      <th>RELIGION</th>
+      <th>DISTRICT OF DOB</th>
+  </tr>
+  <tr>
+    <td>{{ childName }}</td>
+    <td>{{ fName }}</td>
+    <td>{{ mName }}</td>
+    <td>{{ gender }}</td>
+    <td>{{ religion }}</td>
+    <td>{{ districtOfDOB }}</td>
+  </tr>
+    </table>
+    </div><br><br>
+
+    <div class="row">
+      <div class="col-25">
+        <label for="gname">Grand Father's Name</label>
+      </div>
+      <div class="col-75">
+        <input type="text" value="{{grandFatherName}}" readonly>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-25">
+        <label for="gcnic">Grand Father's CNIC}</label>
+      </div>
+      <div class="col-75">
+        <input type="text" value="{{grandFatherCNIC}}}" readonly>
+      </div>
+    </div>
+
+<div class="row">
+      <div class="col-25">
+        <label for="dob">Date Of Birth</label>
+      </div>
+      <div class="col-75">
+        <input type="text" value="{{dob}}" readonly>
+      </div>
+    </div>
+
+
+<div class="row">
+      <div class="col-25">
+        <label for="address">Address</label>
+      </div>
+      <div class="col-75">
+        <input type="text" value="{{address}}" readonly>
+      </div>
+    </div>
+
+<div class="row">
+      <div class="col-25">
+        <label for="tehsil">Tehsil</label>
+      </div>
+      <div class="col-75">
+        <input type="text" value="{{tehsil}}" readonly>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-25">
+        <label for="district">District</label>
+      </div>
+      <div class="col-75">
+        <input type="text" value="{{district}}" readonly>
+      </div>
+    </div>
+
+     <div class="row">
+      <div class="col-25">
+        <label for="doi">Date Of Issue</label>
+      </div>
+      <div class="col-75">
+        <input type="text" value="{{doi}}" readonly>
+      </div>
+    </div>
+
+
+  </form>
+</div><br><br>
+
+</body>
+
+
+
+
+<footer>
+  <div id="media">
+  <nav class="navbar fixed-bottom navbar-expand-sm bg-transparent navbar-dark" >
+   <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+          <a href="#" class="fa fa-facebook"></a>
+            </li>
+            <li class="nav-item">
+            <a href="#" class="fa fa-twitter"></a>
+            </li>
+            <li class="nav-item">
+            <a href="#" class="fa fa-google"></a>
+            </li>
+    </ul>
+  </nav>
+  </div>
+</footer>
+</div>
+</html>

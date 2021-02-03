@@ -1,0 +1,750 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>NADRA - National Database and Registration Authority</title>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <meta content="" name="keywords">
+  <meta content="" name="description">
+
+  <!-- Favicons -->
+  <link href="../static/img/simple.ico" rel="icon">
+  <link href="../static/img/simple.ico" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Montserrat:300,400,500,700" rel="stylesheet">
+
+
+  <!-- Bootstrap CSS File -->
+  <link href="../static/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Libraries CSS Files -->
+  <link href="../static/lib/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+  <link href="../static/lib/animate/animate.min.css" rel="stylesheet">
+  <link href="../static/lib/ionicons/css/ionicons.min.css" rel="stylesheet">
+  <link href="../static/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+  <link href="../static/lib/lightbox/css/lightbox.min.css" rel="stylesheet">
+
+  <!-- Main Stylesheet File -->
+  <link href="../static/css/style.css" rel="stylesheet">
+
+</head>
+
+
+
+<!--==========================
+  Header
+============================-->
+<header id="header">
+    <div class="container-fluid">
+        <div id="logo" class="pull-left">
+            <!-- Uncomment below if you prefer to use an image logo -->
+            <a href="#intro"><img src="../static/img/nadra_logo.png" alt="Logo" style="width:50px;margin-left: 0px;" title="NADRA Lite" /></a>
+        </div>
+        <div id="logo" class="pull-left">
+            <h1><a href="#intro" class="scrollto">NADRA Lite</a></h1>
+        </div>
+
+        <nav id="nav-menu-container">
+            <ul class="nav-menu">
+                <li class="menu-active">
+                    {% if session.get('type')=='admin' %}
+                        <a href="/administratorWelcome.html" target="_self" class="btn-get-started scrollto">Home</a>
+                    {% elif session.get('type')=='user' %}
+                        <a href="/userWelcome.html" target="_self" class="btn-get-started scrollto">Home</a>
+                    {% else: %}
+                        <a href="#intro">Home</a>
+                    {% endif %}
+                </li>
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#team">Team</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="#contact">FeedBack</a></li>
+                <li>
+                    {% if session['logged_in'] %}
+                        <button class="btn btn-success"><a href="/log-out" target="_self" class="btn-get-started scrollto">Log Out</a></button>
+                    {% else %}
+                        <button class="btn btn-success"> <a href="/login" target="_blank" class="btn-get-started scrollto">Log In</a></button>
+                    {% endif %}
+                </li>
+            </ul>
+        </nav><!-- #nav-menu-container -->
+    </div>
+{% with messages = get_flashed_messages() %}
+    {% if messages %}
+        {% for message in messages %}
+            <div class="alert alert-primary alert-dismissible fade show" role="alert">
+                <span>{{ message }}</span>
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+        {% endfor %}
+    {% endif %}
+{% endwith %}
+</header><!-- #header -->
+<!--==========================
+  Intro Section
+============================-->
+<section id="intro">
+    <div class="intro-container">
+        <div id="introCarousel" class="carousel  slide carousel-fade" data-ride="carousel">
+
+            <ol class="carousel-indicators"></ol>
+
+            <div class="carousel-inner" role="listbox">
+
+                <div class="carousel-item active">
+                    <div class="carousel-background"><img src="../static/img/corosel1.jpeg" alt=""></div>
+                    <div class="carousel-container">
+                        <div class="carousel-content">
+                            <h2>NADRA Lite Pakistan</h2>
+                            <p>The National Database and Registration Authority of Pakistan.</p>
+                            {% if session.get('type')=='admin' %}
+                                <a href="/administratorWelcome.html" target="_self" class="btn-get-started scrollto">Home</a>
+                            {% elif session.get('type')=='user' %}
+                                <a href="/userWelcome.html" target="_self" class="btn-get-started scrollto">Home</a>
+                            {% else: %}
+                                <a href="/login" target="_blank" class="btn-get-started scrollto">Log In</a>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+
+                <div class="carousel-item">
+                    <div class="carousel-background"><img src="../static/img/corosel2.jpeg" alt="" style="max-width: 100%;height: auto;"></div>
+                    <div class="carousel-container">
+                        <div class="carousel-content">
+                            <h2>Computerized National Identity Card</h2>
+                            <p>The Computerized National Identity Card (CNIC) is an identity card issued by Pakistan's National Database and Registration Authority (NADRA).</p>
+                            {% if session.get('type')=='admin' %}
+                                <a href="/administratorWelcome.html" target="_self" class="btn-get-started scrollto">Home</a>
+                            {% elif session.get('type')=='user' %}
+                                <a href="/userWelcome.html" target="_self" class="btn-get-started scrollto">Home</a>
+                            {% else: %}
+                                <a href="/login" target="_blank" class="btn-get-started scrollto">Log In to Check CNIC Information</a>
+                            {% endif %}
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="carousel-item">
+                    <div class="carousel-background"><img src="../static/img/corosel3.jpg" alt=""></div>
+                    <div class="carousel-container">
+                        <div class="carousel-content">
+                            <h2>We Serve to Safeguard Your Identity!</h2>
+                            <p>NADRA serves to preserve the nation's identity through its tailor made advanced services.</p>
+                            {% if session.get('type')=='admin' %}
+                                <a href="/administratorWelcome.html" target="_self" class="btn-get-started scrollto">Home</a>
+                            {% elif session.get('type')=='user' %}
+                                <a href="/userWelcome.html" target="_self" class="btn-get-started scrollto">Home</a>
+                            {% else: %}
+                                <a href="/login" target="_blank" class="btn-get-started scrollto">Log In to Protect Your Identity</a>
+                            {% endif %}
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="carousel-item">
+                    <div class="carousel-background"><img src="../static/img/corosel4.jpeg" alt=""></div>
+                    <div class="carousel-container">
+                        <div class="carousel-content">
+                            <h2>Serving Humanity</h2>
+                            <p>Uncountable sacrifices, sincere efforts and struggles gave us our beloved homeland, Pakistan. Now we are a Nation, enjoying our pride of having a own individuality.</p>
+                            {% if session.get('type')=='admin' %}
+                                <a href="/administratorWelcome.html" target="_self" class="btn-get-started scrollto">Home</a>
+                            {% elif session.get('type')=='user' %}
+                                <a href="/userWelcome.html" target="_self" class="btn-get-started scrollto">Home</a>
+                            {% else: %}
+                                <a href="/login" target="_blank" class="btn-get-started scrollto">Log In to Get Our Service</a>
+                            {% endif %}
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="carousel-item">
+                    <div class="carousel-background"><img src="../static/img/corosel5.jpeg" alt=""></div>
+                    <div class="carousel-container">
+                        <div class="carousel-content">
+                            <h2>Computrized & Secure Records</h2>
+                            <p>National Database and Registration Authority (NADRA) was established as National Database Organization (NDO), an attached department under the Ministry of Interior, Government of Pakistan in 1998..</p>
+                            {% if session.get('type')=='admin' %}
+                                <a href="/administratorWelcome.html" target="_self" class="btn-get-started scrollto">Home</a>
+                            {% elif session.get('type')=='user' %}
+                                <a href="/userWelcome.html" target="_self" class="btn-get-started scrollto">Home</a>
+                            {% else: %}
+                                <a href="/login" target="_blank" class="btn-get-started scrollto">Log In to Explore</a>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <a class="carousel-control-prev" href="#introCarousel" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon ion-chevron-left" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+
+            <a class="carousel-control-next" href="#introCarousel" role="button" data-slide="next">
+                <span class="carousel-control-next-icon ion-chevron-right" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+
+        </div>
+    </div>
+</section>
+</section><!-- #intro -->
+
+<main id="main">
+
+    <!--==========================
+      About Us Section
+    ============================-->
+    <section id="projects">
+        <section id="about">
+            <div class="container">
+
+                <header class="section-header">
+                    <h3>About Us</h3>
+                    <p>National Database and Registration Authority (NADRA) was established as National Database Organization (NDO), an attached department under the Ministry of Interior, Government of Pakistan in 1998. On 10 March, 2000, NDO & Directorate General of Registration (DGR) merged to form NADRA; an independent corporate body with requisite autonomy to operate independently and facilitate good governance. National Database & Registration Authority (NADRA) has gained international recognition for its success in providing solutions for identification, e-governance and secure documents that deliver multi-pronged goals of mitigating identity theft; safe-guarding the interests of our clients and facilitating the public.
+
+                        NADRA set out on the journey of Civil Registration of all Pakistanis in March 2000 and in a short span of time NADRA’s team indigenously created a state of the art centralized Data Warehouse, Network Infrastructure and
+
+
+                        Interactive Data Acquisition Systems to issue secure National Identity Cards (NIC). With the introduction of this new fool-proof, comprehensive and highly sophisticated computerized system; NADRA has been successful in reducing the identity theft to a bare minimum.
+                    </p>
+                </header>
+
+                <div class="row about-cols">
+
+                    <div class="col-md-4 wow fadeInUp">
+                        <div class="about-col">
+                            <div class="img">
+                                <img src="../static/img/about-mission.jpg" alt="" class="img-fluid">
+                                <div class="icon"><i class="ion-ios-speedometer-outline"></i></div>
+                            </div>
+                            <h2 class="title"><a href="#">Our Mission</a></h2>
+                            <p>
+
+                                To create and maintain a secure, authentic and dynamic database that comprehensively covers the demographic, geographic, social and statistical aspects of the citizens of Pakistan and provide to our own and foreign governments effective homeland security solutions and assistance in good governance. We shall develop ourselves as a ‘Learning Organization’ in a culture that fosters creativity, innovation, commitment, dedication, continuous improvement and a desire to excel by its employees.</p>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4 wow fadeInUp" data-wow-delay="0.1s">
+                        <div class="about-col">
+                            <div class="img">
+                                <img src="../static/img/about-plan.jpg" alt="" class="img-fluid">
+                                <div class="icon"><i class="ion-ios-list-outline"></i></div>
+                            </div>
+                            <h2 class="title"><a href="#">Our Plan</a></h2>
+                            <p>
+                                The National Database and Registration Authority is planning to establish swift centers at Pakistani foreign missions to facilitate overseas Pakistanis in getting registered with the authority. A proposal in this regard is under consideration and the project will be undertaken after the approval of the foreign ministry. The English version of computerized national identity cards for expatriates, called National Identity Card for Overseas Pakistanis (NICOP), is being issued in the country, and all legal documents including passports are being issued on the basis of the CNICs only.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4 wow fadeInUp" data-wow-delay="0.2s">
+                        <div class="about-col">
+                            <div class="img">
+                                <img src="../static/img/about-vision.jpg" alt="" class="img-fluid">
+                                <div class="icon"><i class="ion-ios-eye-outline"></i></div>
+                            </div>
+                            <h2 class="title"><a href="#">Our Vision</a></h2>
+                            <p>
+                                Nadra having established itself as an industrial player of international stature envisions to:
+
+                                1.  Become a world class, leading solution provider in all areas of Homeland security.
+                                2.  Develop Human Potential that is considered the best in the word.
+                                3.  Register all Pakistani residents and citizens by 2008.
+                                4.  Become a world leader in technology development.
+                                5.  Develop System integration excellence to implement and integrate proven, state-of-the-art technologies to achieve specific business objective.
+
+                            </p>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </section><!-- #about -->
+    </section>
+        <!--==========================
+          Services Section
+        ============================-->
+        <section id="services">
+            <div class="container">
+
+                <header class="section-header wow fadeInUp">
+                    <h3>Services</h3>
+                    <p>We Provide the Following Services.</p>
+                </header>
+
+                <div class="row">
+
+                    <div class="col-lg-4 col-md-6 box wow bounceInUp" data-wow-duration="1.4s">
+                        <div class="icon"><i class="ion-ios-analytics-outline"></i></div>
+                        <h4 class="title"><a href="https://www.nadra.gov.pk/services/consultancy-advisory-services/">Consultancy & Advisory</a></h4>
+                        <p class="description">NADRA with its varied and diverse experience, provides consultancy and advisory services to its clients</p>
+                    </div>
+                    <div class="col-lg-4 col-md-6 box wow bounceInUp" data-wow-duration="1.4s">
+                        <div class="icon"><i class="ion-ios-bookmarks-outline"></i></div>
+                        <h4 class="title"><a href="https://www.nadra.gov.pk/services/enterprise-level-software-development/">Enterprise Software Development</a></h4>
+                        <p class="description">NADRA offers highly secure, reliable and interoperable enterprise software/solution architecture. The modular architecture provided is robust and scalable. Explicit and emphasized consideration is given to security, transparency, flexibility and efficiency while developing any enterprise software/solution architecture. NADRA’s systematic approach to software development and integration has positioned it to offer customized IT solutions and services to its clients. Has the capability to provide customized and tailor made solutions to the clients without being biased by technology. Hence, earned global recognition and earned ID World Award.</p>
+                    </div>
+                    <div class="col-lg-4 col-md-6 box wow bounceInUp" data-wow-duration="1.4s">
+                        <div class="icon"><i class="ion-ios-paper-outline"></i></div>
+                        <h4 class="title"><a href="https://www.nadra.gov.pk/services/system-integration/">System Integration</a></h4>
+                        <p class="description">NADRA has for over 10 years successfully deployed projects such as secure Smart National ID Cards for Nigeria, Civil Registration System for the Republic of Sudan, Vehicle License for Bangladesh and Passport for the Government of Kenya. NADRA offers flexible end-to-end application development and integration services right from requirement analysis; till the testing and deployment of the application. Highly trained/certified professionals with hands-on experience on deployed systems provide trainings at in-house Training Centers in Islamabad, Pakistan as well as the required off-shore venue of the client.</p>
+                    </div>
+                    <div class="col-lg-4 col-md-6 box wow bounceInUp" data-wow-delay="0.1s" data-wow-duration="1.4s">
+                        <div class="icon"><i class="ion-ios-speedometer-outline"></i></div>
+                        <h4 class="title"><a href="https://www.nadra.gov.pk/services/data-warehousing/">Data Warehousing</a></h4>
+                        <p class="description">NADRA has established more than 500 Multi-Biometric Interactive Registration Centers across Pakistan to improve quality of data acquisition and provide hassle free service to citizens of Pakistan. The data acquired is sent directly to the Data Warehouse for processing and finally for printing of secure documents. The Data Warehouse is developed and managed by NADRA’s own professionals and is equipped with mid-to-high grade servers from leading vendors namely IBM, HP, Dell, NCR, Teradata, Compaq etc.
+                            NADRA has installed a highly secure, reliable, scalable, and mission critical Local Area Network (LAN) and Wide Area Network (WAN). The network is spread all over the country with 8 major nodes connected to each other via DVB-RCS2, VSAT Satellite & terrestrial frame Relay links. It is equipped with high to mid end servers, devices and equipment from multiple vendors.</p>
+                    </div>
+                    <div class="col-lg-4 col-md-6 box wow bounceInUp" data-wow-delay="0.1s" data-wow-duration="1.4s">
+                        <div class="icon"><i class="ion-ios-barcode-outline"></i></div>
+                        <h4 class="title"><a href="https://www.nadra.gov.pk/services/project-management/">Project Management</a></h4>
+                        <p class="description">NADRA utilizes the knowledge areas of PMBOK and quality management using the methodologies, tools, techniques, result orientation and control mechanism in conducting most of IT related large scale projects. All methodologies are aligned with PMBOK specified set of concepts and techniques for managing information technology (IT) infrastructure, development and operations. These techniques are followed as per defined by Project Management Institute (PMI), USA, & Information Technology Infrastructure Library (ITIL). Modification and fine-tuning is conducted as per the project requirements for an effective and timely delivery considering scope, time, budget and quality.</p>
+                    </div>
+                    <div class="col-lg-4 col-md-6 box wow bounceInUp" data-wow-delay="0.1s" data-wow-duration="1.4s">
+                        <div class="icon"><i class="ion-ios-people-outline"></i></div>
+                        <h4 class="title"><a href="https://www.nadra.gov.pk/services/financial-service-solutions/">Financial Services</a></h4>
+                        <p class="description">NADRA has developed its own Financial Service Solutions designed to provide online bill payment and cash disbursement for organizations and deserving nationals in need of cash grants, pensions and insurance claims. This platform is used to provide funds through electronic means to the underprivileged nationals, internally displaced people and those affected by the natural calamity like earth quake and floods. Outlets are placed at geographically dispersed public places to aid both the Government and public in meting out billing and disbursement services.</p>
+                    </div>
+
+                </div>
+
+            </div>
+        </section><!-- #services -->
+
+        <!--==========================
+          Call To Action Section
+        ============================-->
+        <section id="call-to-action" class="wow fadeIn">
+            <div class="container text-center">
+                <h3>Call To Action</h3>
+                <p> In Case of Any Problem. Call Us!.</p>
+                <a class="cta-btn" href="#contact">Call To Action</a>
+            </div>
+        </section><!-- #call-to-action -->
+
+        <!--==========================
+          Skills Section
+        ============================-->
+        <section id="skills">
+            <div class="container">
+
+                <header class="section-header">
+                    <h3>Our Skills</h3>
+                    <p>We have experties in the following</p>
+                </header>
+
+                <div class="skills-content">
+
+                    <div class="progress">
+                        <div class="progress-bar bg-success" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">
+                            <span class="skill">Management and Analysis <i class="val">100%</i></span>
+                        </div>
+                    </div>
+
+                    <div class="progress">
+                        <div class="progress-bar bg-info" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100">
+                            <span class="skill">Capital and Operating Efficiency <i class="val">100%</i></span>
+                        </div>
+                    </div>
+
+                    <div class="progress">
+                        <div class="progress-bar bg-warning" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">
+                            <span class="skill">Records Management <i class="val">100%</i></span>
+                        </div>
+                    </div>
+
+                    <div class="progress">
+                        <div class="progress-bar bg-danger" role="progressbar" aria-valuenow="55" aria-valuemin="0" aria-valuemax="100">
+                            <span class="skill">Teamwork <i class="val">100%</i></span>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+        <!--==========================
+          Facts Section
+        ============================-->
+        <section id="facts"  class="wow fadeIn">
+            <div class="container">
+
+                <header class="section-header">
+                    <h3>Facts</h3>
+                    <p>National Database and Registration Authority (NADRA) was established as National Database Organization (NDO), an attached department under the Ministry of Interior, Government of Pakistan in 1998.</p>
+                </header>
+
+                <div class="row counters">
+
+                    <div class="col-lg-3 col-6 text-center">
+                        <span data-toggle="counter-up">128,583,912</span>
+                        <p>Clients</p>
+                    </div>
+
+                    <div class="col-lg-3 col-6 text-center">
+                        <span data-toggle="counter-up">1,676</span>
+                        <p>Employees</p>
+                    </div>
+
+                    <div class="col-lg-3 col-6 text-center">
+                        <span data-toggle="counter-up">1,025</span>
+                        <p>Servers</p>
+                    </div>
+
+                    <div class="col-lg-3 col-6 text-center">
+                        <span data-toggle="counter-up">770,427,918</span>
+                        <p>Finger Prints</p>
+                    </div>
+
+                </div>
+
+                <div class="facts-img">
+                    <img src="../static/img/facts.jpg" alt="" class="img-fluid">
+                </div>
+
+            </div>
+        </section><!-- #facts -->
+
+
+        <section id="testimonials" class="section-bg wow fadeInUp">
+            <div class="container">
+
+                <header class="section-header">
+                    <h3>Reviews</h3>
+                </header>
+
+                <div class="owl-carousel testimonials-carousel">
+
+                    <div class="testimonial-item">
+                        <img src="../static/img/c1.jpg" class="testimonial-img" alt="">
+                        <h3>Chota Bheem</h3>
+                        <p>
+                            <img src="../static/img/quote-sign-left.png" class="quote-sign-left" alt="">
+                            Hello guyz.This is Chota Bheem. I have created account of this website.Recently I urgently required domicile...I just log in and received it...This was fun.Isn't?..Thank you for supporting Us..<img src="../static/img/quote-sign-right.png" class="quote-sign-right" alt="">
+                            <img src="../static/img/quote-sign-right.png" class="quote-sign-right" alt="">
+                        </p>
+                    </div>
+
+                    <div class="testimonial-item">
+                        <img src="../static/img/c2.jpeg" class="testimonial-img" alt="">
+                        <h3>Motu Patlu</h3>
+                        <p>
+                            <img src="../static/img/quote-sign-left.png" class="quote-sign-left" alt="">
+                            We really enjoy this website. It helps us many times.
+                            <img src="../static/img/quote-sign-right.png" class="quote-sign-right" alt="">
+                        </p>
+                    </div>
+
+                    <div class="testimonial-item">
+                        <img src="../static/img/c3.jpeg" class="testimonial-img" alt="">
+                        <h3>Doremon</h3>
+                        <p>
+                            <img src="../static/img/quote-sign-left.png" class="quote-sign-left" alt="">
+                            Friendly environment,easy to use...Providing all information in just a few seconds...Thanks for providing this facility
+                            <img src="../static/img/quote-sign-right.png" class="quote-sign-right" alt="">
+                        </p>
+                    </div>
+
+                    <div class="testimonial-item">
+                        <img src="../static/img/c4.jpg" class="testimonial-img" alt="">
+                        <h3>Uncle Majboor</h3>
+                        <p>
+                            <img src="../static/img/quote-sign-left.png" class="quote-sign-left" alt="">
+                            I visit many times a day. I am in love with GD Anas Piyary. :)
+                            <img src="../static/img/quote-sign-right.png" class="quote-sign-right" alt="">
+                        </p>
+                    </div>
+
+                    <div class="testimonial-item">
+                        <img src="../static/img/c5.png" class="testimonial-img" alt="">
+                        <h3>Kalia</h3>
+                        <p>
+                            <img src="../static/img/quote-sign-left.png" class="quote-sign-left" alt="">
+                            I am impressed by the Work!
+                            <img src="../static/img/quote-sign-right.png" class="quote-sign-right" alt="">
+                        </p>
+                    </div>
+
+                </div>
+
+            </div>
+        </section><!-- #testimonials -->
+
+        <!--==========================
+          Team Section
+        ============================-->
+        <section id="aboutUS">
+            <section id="team">
+                <div class="container">
+                    <div class="section-header wow fadeInUp">
+                        <h3>Team</h3>
+                        <p>We have some of the Experts from the Town.</p>
+                    </div>
+
+                    <div class="row">
+
+                        <div class="col-lg-3 col-md-6 wow fadeInUp">
+                            <div class="member">
+                                <img src="../static/img/sajjad.jpg" class="img-fluid" alt="">
+                                <div class="member-info">
+                                    <div class="member-info-content">
+                                        <h4>Syed Sajjad Kazmi</h4>
+                                        <span>Chief Executive Officer and Peon</span>
+                                        <div class="social">
+                                            <a href=""><i class="fa fa-twitter"></i></a>
+                                            <a href=""><i class="fa fa-facebook"></i></a>
+                                            <a href=""><i class="fa fa-google-plus"></i></a>
+                                            <a href=""><i class="fa fa-linkedin"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                            <div class="member">
+                                <img src="../static/img/maham.jpg" class="img-fluid" alt="">
+                                <div class="member-info">
+                                    <div class="member-info-content">
+                                        <h4>Syeda Maham Sherazi</h4>
+                                        <span>Developer</span>
+                                        <div class="social">
+                                            <a href=""><i class="fa fa-twitter"></i></a>
+                                            <a href=""><i class="fa fa-facebook"></i></a>
+                                            <a href=""><i class="fa fa-google-plus"></i></a>
+                                            <a href=""><i class="fa fa-linkedin"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.2s">
+                            <div class="member">
+                                <img src="../static/img/wajid.jpg" class="img-fluid" alt="">
+                                <div class="member-info">
+                                    <div class="member-info-content">
+                                        <h4>Abdul Wajid</h4>
+                                        <span>CTO & Developer</span>
+                                        <div class="social">
+                                            <a href=""><i class="fa fa-twitter"></i></a>
+                                            <a href=""><i class="fa fa-facebook"></i></a>
+                                            <a href=""><i class="fa fa-google-plus"></i></a>
+                                            <a href=""><i class="fa fa-linkedin"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
+                            <div class="member">
+                                <img src="../static/img/anas.jpg" class="img-fluid" alt="">
+                                <div class="member-info">
+                                    <div class="member-info-content">
+                                        <h4>Anas Bilal</h4>
+                                        <span>Designer & Developer</span>
+                                        <div class="social">
+                                            <a href=""><i class="fa fa-twitter"></i></a>
+                                            <a href=""><i class="fa fa-facebook"></i></a>
+                                            <a href=""><i class="fa fa-google-plus"></i></a>
+                                            <a href=""><i class="fa fa-linkedin"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
+                            <div class="member">
+                                <img src="../static/img/faiza.jpeg" class="img-fluid" alt="">
+                                <div class="member-info">
+                                    <div class="member-info-content">
+                                        <h4>Faiza Binyamin</h4>
+                                        <span>Designer & Developer</span>
+                                        <div class="social">
+                                            <a href=""><i class="fa fa-twitter"></i></a>
+                                            <a href=""><i class="fa fa-facebook"></i></a>
+                                            <a href=""><i class="fa fa-google-plus"></i></a>
+                                            <a href=""><i class="fa fa-linkedin"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+            </section>
+            </section><!-- #team -->
+
+            <!--==========================
+              Contact Section
+            ============================-->
+            <section id="contactUS">
+            <a href="#feedBack"></a>
+                <section id="contact" class="section-bg wow fadeInUp">
+                    <div class="container">
+
+                        <div class="section-header">
+                            <h3>Contact Us</h3>
+                            <p>Contact Us so that we can Serve you in the Best Way.</p>
+                        </div>
+
+                        <div class="row contact-info">
+
+                            <div class="col-md-4">
+                                <div class="contact-address">
+                                    <i class="ion-ios-location-outline"></i>
+                                    <h3>Address</h3>
+                                    <address>PUCIT, Katchery Road، Near Anarkali Bazar، Lahore, 54000, Pakistan</address>
+                                </div>
+                            </div>
+
+                            <div class="col-md-4">
+                                <div class="contact-phone">
+                                    <i class="ion-ios-telephone-outline"></i>
+                                    <h3>Phone Number</h3>
+                                    <p><a href="">0315-4174079</a></p>
+                                </div>
+                            </div>
+
+                            <div class="col-md-4">
+                                <div class="contact-email">
+                                    <i class="ion-ios-email-outline"></i>
+                                    <h3>Email</h3>
+                                    <p><a href="nadraDevelopers@gmail.com">nadraDevelopers@gmail.com</a></p>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="form">
+                            <form action="/feedback" method="POST" role="form" class="contact form">
+                                <div class="form-row">
+                                    <div class="form-group col-md-6">
+                                        <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                                        <div class="validation"></div>
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" data-rule="email" data-msg="Please enter a valid email" />
+                                        <div class="validation"></div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject" />
+                                    <div class="validation"></div>
+                                </div>
+                                <div class="form-group">
+                                    <textarea class="form-control" name="message" rows="5" data-rule="required" data-msg="Please write something for us" placeholder="Message"></textarea>
+                                    <div class="validation"></div>
+                                </div>
+                                <div class="text-center"><button type="submit">Send Message</button></div>
+                            </form>
+                        </div>
+
+                    </div>
+                </section>
+                </section><!-- #contact -->
+</main>
+<!--==========================
+  Footer
+============================-->
+  <footer id="footer">
+    <div class="footer-top">
+      <div class="container">
+        <div class="row">
+
+          <div class="col-lg-3 col-md-6 footer-info">
+            <h3>NADRA Lite</h3>
+            <p>National Database and Registration Authority (NADRA) was established as National Database Organization (NDO), an attached department under the Ministry of Interior, Government of Pakistan in 1998. On 10 March, 2000, NDO & Directorate General of Registration (DGR) merged to form NADRA; an independent corporate body with requisite autonomy to operate independently and facilitate good governance. </p>
+          </div>
+
+          <div class="col-lg-3 col-md-6 footer-links">
+            <h4>Useful Links</h4>
+            <ul>
+              <li><i class="ion-ios-arrow-right"></i> <a href="#">Home</a></li>
+              <li><i class="ion-ios-arrow-right"></i> <a href="#">About us</a></li>
+              <li><i class="ion-ios-arrow-right"></i> <a href="#">Services</a></li>
+              <li><i class="ion-ios-arrow-right"></i> <a href="#">Terms of service</a></li>
+              <li><i class="ion-ios-arrow-right"></i> <a href="#">Privacy policy</a></li>
+            </ul>
+          </div>
+
+          <div class="col-lg-3 col-md-6 footer-contact">
+            <h4>Contact Us</h4>
+            <p>
+              PUCIT, Katchery Road، <br>
+              Near Anarkali Bazar، Lahore<br>
+              54000, Pakistan <br>
+              <strong>Phone:</strong> 03154174079<br>
+              <strong>Email:</strong> nadraDevelopers@gmail.com<br>
+            </p>
+                        <div class="social-links">
+              <a href="#" class="twitter"><i class="fa fa-twitter"></i></a>
+              <a href="#" class="facebook"><i class="fa fa-facebook"></i></a>
+              <a href="#" class="instagram"><i class="fa fa-instagram"></i></a>
+              <a href="#" class="google-plus"><i class="fa fa-google-plus"></i></a>
+              <a href="#" class="linkedin"><i class="fa fa-linkedin"></i></a>
+            </div>
+          </div>
+
+
+            <div class="col-lg-3 col-md-6 footer-newsletter">
+      <h4>Our Proud</h4>
+            <p>Our Team Our Proud.</p>
+           <br>Thanks to the Team
+
+          </div>
+
+
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="copyright">
+        &copy; Copyright <strong>NADRA Lite</strong>. All Rights Reserved
+      </div>
+    </div>
+  </footer><!-- #footer -->
+
+
+  <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
+  <!-- Uncomment below i you want to use a preloader -->
+  <!-- <div id="preloader"></div> -->
+
+  <!-- JavaScript Libraries -->
+  <script src="../static/lib/jquery/jquery.min.js"></script>
+  <script src="../static/lib/jquery/jquery-migrate.min.js"></script>
+  <script src="../static/lib/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="../static/lib/easing/easing.min.js"></script>
+  <script src="../static/lib/superfish/hoverIntent.js"></script>
+  <script src="../static/lib/superfish/superfish.min.js"></script>
+  <script src="../static/lib/wow/wow.min.js"></script>
+  <script src="../static/lib/waypoints/waypoints.min.js"></script>
+  <script src="../static/lib/counterup/counterup.min.js"></script>
+  <script src="../static/lib/owlcarousel/owl.carousel.min.js"></script>
+  <script src="../static/lib/isotope/isotope.pkgd.min.js"></script>
+  <script src="../static/lib/lightbox/js/lightbox.min.js"></script>
+  <script src="../static/lib/touchSwipe/jquery.touchSwipe.min.js"></script>
+  <!-- Contact Form JavaScript File -->
+  <script src="../static/contactform/contactform.js"></script>
+  <!-- Template Main Javascript File -->
+  <script src="../static/js/main.js"></script>
+
+</body>
+</html>

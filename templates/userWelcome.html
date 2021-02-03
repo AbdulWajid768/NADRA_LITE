@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html style="overflow-x: hidden;">
+<head>
+<meta charset="utf-8"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+<title>Welcome {{session['username'].capitalize()}}- National Database & Registration Authority </title>
+ <link href="../static/img/simple.ico" rel="icon">
+  <link href="../static/img/simple.ico" rel="apple-touch-icon">
+
+<link rel="stylesheet" type="text/css" href="../static/bootstrap/css/bootstrap.min.css"/>
+<script type="text/javascript" src="../static/bootstrap/js/bootstrap.min.js"></script>
+
+<link rel="stylesheet" type="text/css" id="applicationStylesheet" href="../static/css/welcome.css"/>
+</head>
+
+
+<header>
+  <nav class="navbar navbar-expand-sm bg-dark navbar-dark nav-upper" style="opacity: 0.9;">
+  <a href="index.html" class="navbar-brand " > <img src="../static/img/nadra_logo.png" alt="Logo" style="width:60px;"></a>
+
+
+   <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link active">Welcome {{session['username'].capitalize()}}!</a>
+      </li>
+    
+    </ul>  
+    <ul class="navbar-nav ml-auto">
+       <li class="nav-item">     
+          <a href="{{ url_for('.index', _anchor='contactUS') }}"><img src="../static/img/email.png" alt="Logo" style="width:4.5vw;margin-left: 30%;margin-top: 0.6vw"></a>
+            </li>
+            <li class="nav-item dropdown active">
+        <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-4" data-toggle="dropdown"
+          aria-haspopup="true" aria-expanded="false">
+          <img src="../static/img/profile1.png" style="max-width: 2.5vw;max-height: auto"> {{session['username'].capitalize()}} </a>
+        <div class="dropdown-menu dropdown-menu-right dropdown-info" aria-labelledby="navbarDropdownMenuLink-4">
+          <a class="dropdown-item" href="/log-out">Log out</a>
+        </div>
+      </li>
+    </ul>
+
+  </nav>
+</header>
+<body>
+
+
+<div>
+
+<nav class="navbar-default navbar-expand-xl bg-dark navbar-dark navbar-static-top navbar-lower">
+
+  <!-- Links -->
+  <ul class="navbar-nav">
+
+    <li class="nav-item" style="padding-right: 25px; padding-left: 50px;">
+      <a class="nav-link" href="userWelcome.html" target="_self">Home</a>
+    </li>
+
+
+     <li class="nav-item dropdown" style="padding-right: 25px;">
+      <a class="nav-link dropdown-toggle" href="#" id="Identify" data-toggle="dropdown">
+        Identity
+      </a>
+      <div class="dropdown-menu" labelledby="Identify">
+        <a class="dropdown-item" target="_self" href="birthCertificate.html">Birth Certificate</a>
+        <a class="dropdown-item" target="_self" href="CNIC.html">ÇNIC</a>
+        <a class="dropdown-item" target="_self" href="domicile.html">Domicile</a>
+        <a class="dropdown-item" target="_self" href="deathCertificate.html">Death Certificate</a>
+      </div>
+    </li>
+
+     <li class="nav-item dropdown" style="padding-right: 25px;">
+      <a class="nav-link dropdown-toggle" href="officeTimings.html" id="navbardrop" data-toggle="dropdown">
+        Office Timings
+      </a>
+      <div class="dropdown-menu">
+        <a class="dropdown-item" target="_self" href="officeTimings.html">Lahore</a>
+        <a class="dropdown-item" target="_self" href="officeTimings.html">Islamabad</a>
+    <a class="dropdown-item" target="_self" href="officeTimings.html">Karachi</a>
+    <a class="dropdown-item" target="_self" href="officeTimings.html">Peshawar</a>
+        <a class="dropdown-item" target="_self" href="officeTimings.html">Quetta</a>
+            <a class="dropdown-item" target="_self" href="officeTimings.html">Multan</a>
+                <a class="dropdown-item" target="_self" href="officeTimings.html">Sargodha</a>
+                    <a class="dropdown-item" target="_self" href="officeTimings.html">Sukkur</a>
+      </div>
+    </li>
+
+     <li class="nav-item dropdown" style="padding-right: 25px;">
+      <a class="nav-link dropdown-toggle" target="_self" href="{{ url_for('.index', _anchor='projects') }}" id="navbardrop" data-toggle="dropdown">
+        Projects
+      </a>
+      <div class="dropdown-menu">
+        <a class="dropdown-item" target="_self" href="{{ url_for('.index', _anchor='projects') }}">National</a>
+        <a class="dropdown-item" target="_self" href="{{ url_for('.index', _anchor='projects') }}">International</a>
+      </div>
+    </li>
+    <li class="nav-item" style="padding-right: 25px;">
+      <a class="nav-link" target="_self" href="fee.html">Fees</a>
+    </li>
+
+    <li class="nav-item" style="padding-right: 25px;">
+      <a class="nav-link" target="_self" href="{{ url_for('.index', _anchor='aboutUS') }}">About Us</a>
+    </li>
+    <li class="nav-item" style="padding-right: 25px;">
+      <a class="nav-link" target="_self" href="{{ url_for('.index', _anchor='contactUS') }}">Contact Us</a>
+      </li>
+    <li class="nav-item" style="padding-right: 25px;">
+        <a class="nav-link" target="_self" href="{{ url_for('.index', _anchor='contactUS') }}">Feedback</a>
+      </li>
+    </ul>
+</nav>
+</div>
+
+
+<div class="container-fluid" style="margin-top:12vw">
+  <h1 style="padding-left: 20px;font-family: georgia;"><b>Welcome {{session['username'].capitalize()}}!</b></h1>
+  <p style="width: 550px">National Database & Registration Authority (NADRA) has gained international recognition for its success in providing solutions for identification, e-governance and secure documents that deliver multi-pronged goals of mitigating identity theft, safe-guarding the interests of our clients and facilitating the public. In-depth Research and Development efforts have enabled NADRA to become the trailblazer in the areas of Software Integration, Data Warehousing and Network Infrastructure.</p>
+  
+</div></br>
+
+</body>
+
+
+<footer>
+  <div id="media">
+  <nav class="navbar fixed-bottom navbar-expand-sm bg-transparent navbar-dark" >
+   <ul class="navbar-nav ml-auto">
+            <li class="nav-item">     
+          <a href="#" class="fa fa-facebook"></a>
+            </li>
+            <li class="nav-item">
+            <a href="#" class="fa fa-twitter"></a>
+            </li>
+            <li class="nav-item">
+            <a href="#" class="fa fa-google"></a>
+            </li>
+    </ul>
+  </nav>
+</div>
+</footer>
+</html>

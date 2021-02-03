@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html style="overflow-x: hidden;">
+<html>
+<head>
+<meta charset="utf-8"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+<title>Fee - National Database & Registration Authority </title>
+ <link href="../static/img/simple.ico" rel="icon">
+  <link href="../static/img/simple.ico" rel="apple-touch-icon">
+
+<link rel="stylesheet" type="text/css" href="bootstrap\css\bootstrap.min.css"/>
+<script type="text/javascript" src="bootstrap\js\bootstrap.min.js"></script>
+
+<link rel="stylesheet" type="text/css" id="applicationStylesheet" href="../static/css/tables.css"/>
+</head>
+
+
+<header>
+  <nav class="navbar navbar-expand-sm bg-dark navbar-dark nav-upper" style="opacity: 0.9;">
+  <a href="index.html" class="navbar-brand " > <img src="../static/img/nadra_logo.png" alt="Logo" style="width:60px;"></a>
+
+
+   <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link active">Welcome {{session['username'].capitalize()}}!</a>
+      </li>
+    
+    </ul>  
+    <ul class="navbar-nav ml-auto">
+       <li class="nav-item">     
+          <a href="{{ url_for('.index', _anchor='contactUS') }}"><img src="../static/img/email.png" alt="Logo" style="width:4.5vw;margin-left: 30%;margin-top: 0.6vw"></a>
+            </li>
+            <li class="nav-item dropdown active">
+        <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-4" data-toggle="dropdown"
+          aria-haspopup="true" aria-expanded="false">
+          <img src="../static/img/profile1.png" style="max-width: 2.5vw;max-height: auto"> {{session['username'].capitalize()}} </a>
+        <div class="dropdown-menu dropdown-menu-right dropdown-info" aria-labelledby="navbarDropdownMenuLink-4">
+          <a class="dropdown-item" href="/log-out">Log out</a>
+        </div>
+      </li>
+    </ul>
+
+  </nav>
+</header>
+<body>
+
+
+<div>
+
+<nav class="navbar-default navbar-expand-xl bg-dark navbar-dark navbar-static-top navbar-lower">
+
+  <!-- Links -->
+  <ul class="navbar-nav">
+
+    <li class="nav-item" style="padding-right: 25px; padding-left: 50px;">
+      <a class="nav-link" href="userWelcome.html" target="_self">Home</a>
+    </li>
+
+
+     <li class="nav-item dropdown" style="padding-right: 25px;">
+      <a class="nav-link dropdown-toggle" href="#" id="Identify" data-toggle="dropdown">
+        Identity
+      </a>
+      <div class="dropdown-menu" labelledby="Identify">
+        <a class="dropdown-item" target="_self" href="birthCertificate.html">Birth Certificate</a>
+        <a class="dropdown-item" target="_self" href="CNIC.html">ÇNIC</a>
+        <a class="dropdown-item" target="_self" href="domicile.html">Domicile</a>
+        <a class="dropdown-item" target="_self" href="deathCertificate.html">Death Certificate</a>
+      </div>
+    </li>
+
+     <li class="nav-item dropdown" style="padding-right: 25px;">
+      <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+        Office Timings
+      </a>
+      <div class="dropdown-menu">
+        <a class="dropdown-item" target="_self" href="officeTimings.html">Lahore</a>
+        <a class="dropdown-item" target="_self" href="officeTimings.html">Islamabad</a>
+    <a class="dropdown-item" target="_self" href="officeTimings.html">Karachi</a>
+    <a class="dropdown-item" target="_self" href="officeTimings.html">Peshawar</a>
+        <a class="dropdown-item" target="_self" href="officeTimings.html">Quetta</a>
+            <a class="dropdown-item" target="_self" href="officeTimings.html">Multan</a>
+                <a class="dropdown-item" target="_self" href="officeTimings.html">Sargodha</a>
+                    <a class="dropdown-item" target="_self" href="officeTimings.html">Sukkur</a>
+      </div>
+    </li>
+
+
+     <li class="nav-item dropdown" style="padding-right: 25px;">
+      <a class="nav-link dropdown-toggle" target="_self" href="{{ url_for('.index', _anchor='projects') }}" id="navbardrop" data-toggle="dropdown">
+        Projects
+      </a>
+      <div class="dropdown-menu">
+        <a class="dropdown-item" target="_self" href="{{ url_for('.index', _anchor='projects') }}">National</a>
+        <a class="dropdown-item" target="_self" href="{{ url_for('.index', _anchor='projects') }}">International</a>
+      </div>
+    </li>
+    <li class="nav-item" style="padding-right: 25px;">
+      <a class="nav-link" target="_self" href="fee.html">Fees</a>
+    </li>
+
+    <li class="nav-item" style="padding-right: 25px;">
+      <a class="nav-link" target="_self" href="{{ url_for('.index', _anchor='aboutUS') }}">About Us</a>
+    </li>
+    <li class="nav-item" style="padding-right: 25px;">
+      <a class="nav-link" target="_self" href="{{ url_for('.index', _anchor='contactUS') }}">Contact Us</a>
+      </li>
+    <li class="nav-item" style="padding-right: 25px;">
+        <a class="nav-link" target="_self" href="{{ url_for('.index', _anchor='contactUS') }}">Feedback</a>
+      </li>
+    </ul>
+</nav>
+</div>
+
+
+  <h1 style="text-align: center;font-family: georgia;"><b>Fee Structure</b></h1>
+
+<div class="container">
+  <h2>Fee Details of CNIC/SNIC</h2>                                                                                      
+  <div class="table-responsive">          
+  <table class="table table-hover table-bordered table-striped table-dark">
+    <thead>
+      <tr class="row">
+        <th class="col-6 pl-5">Categories/Type</th>
+        <th class="col-2">Normal(Rs.)</th>
+        <th class="col-2">Urgent(Rs.)</th>
+        <th class="col-2">Executive(Rs.)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="row">
+        <td class="col-6 pl-5">New CNIC</td>
+        <td class="col-2">0</td>
+        <td class="col-2">1150</td>
+        <td class="col-2">2150</td>
+      </tr>
+            <tr class="row">
+        <td class="col-6 pl-5">CNIC Modification</td>
+        <td class="col-2">400</td>
+        <td class="col-2">1150</td>
+        <td class="col-2">2150</td>
+      </tr>      <tr class="row">
+        <td class="col-6 pl-5">CNIC Duplicate</td>
+        <td class="col-2">400</td>
+        <td class="col-2">1150</td>
+        <td class="col-2">2150</td>
+      </tr>      <tr class="row">
+        <td class="col-6 pl-5">CNIC Renewal</td>
+        <td class="col-2">400</td>
+        <td class="col-2">1150</td>
+        <td class="col-2">2150</td>
+      </tr>      <tr class="row">
+        <td class="col-6 pl-5">New Smart NIC</td>
+        <td class="col-2">750</td>
+        <td class="col-2">1500</td>
+        <td class="col-2">2500</td>
+      </tr>
+            <tr class="row">
+        <td class="col-6 pl-5">Smart NIC Modification</td>
+        <td class="col-2">750</td>
+        <td class="col-2">1500</td>
+        <td class="col-2">2500</td>
+      </tr>
+            <tr class="row">
+        <td class="col-6 pl-5">Smart NIC Duplicate</td>
+        <td class="col-2">750</td>
+        <td class="col-2">1500</td>
+        <td class="col-2">2500</td>
+      </tr>
+            <tr class="row">
+        <td class="col-6 pl-5">Smart NIC Renewal</td>
+        <td class="col-2">750</td>
+        <td class="col-2">1500</td>
+        <td class="col-2">2500</td>
+      </tr>
+            <tr class="row">
+        <td class="col-6 pl-5">CNIC Cancellation (Due to Death)</td>
+        <td class="col-2">50</td>
+        <td class="col-2">-</td>
+        <td class="col-2">-</td>
+      </tr>
+            <tr class="row">
+        <td class="col-6 pl-5">CRC New/Duplicate/Modification</td>
+        <td class="col-2">50</td>
+        <td class="col-2">-</td>
+        <td class="col-2">500</td>
+      </tr>
+                  <tr class="row">
+        <td class="col-6 pl-5">FRC</td>
+        <td class="col-2">1000</td>
+        <td class="col-2">-</td>
+        <td class="col-2">1000</td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+</div>
+<br><br>
+
+<div class="container">
+  <h2>Fee Details of NICOP/SNICOP</h2>                                                                                      
+  <div class="table-responsive">          
+  <table class="table table-hover table-bordered table-striped table-dark">
+    <thead>
+      <tr class="row">
+        <th class="col-6 pl-5">Categories/Type</th>
+        <th class="col-6 pl-50">Services</th>
+      </tr>
+      <tr class="row">
+        <th class="col-6 pl-5">Zone A</th>
+        <th class="col-2">Normal(USD)</th>
+        <th class="col-2">Urgent(USD)</th>
+        <th class="col-2">Executive(USD)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="row">
+        <td class="col-6 pl-5">New NICOP</td>
+        <td class="col-2">$36 (USD)</td>
+        <td class="col-2">$54 (USD)</td>
+        <td class="col-2">$72 (USD)</td>
+      </tr>
+       <tr class="row">
+        <td class="col-6 pl-5">NICOP Modification</td>
+        <td class="col-2">$36 (USD)</td>
+        <td class="col-2">$54 (USD)</td>
+        <td class="col-2">$72 (USD)</td>
+      </tr>
+      <tr class="row">
+        <td class="col-6 pl-5">NICOP Duplicate</td>
+        <td class="col-2">$36 (USD)</td>
+        <td class="col-2">$54 (USD)</td>
+        <td class="col-2">$72 (USD)</td>
+      </tr>
+      <tr class="row">
+        <td class="col-6 pl-5">NICOP Renewal</td>
+        <td class="col-2">$36 (USD)</td>
+        <td class="col-2">$54 (USD)</td>
+        <td class="col-2">$72 (USD)</td>
+      </tr>
+      <tr class="row">
+        <td class="col-6 pl-5">New Smart NICOP</td>
+        <td class="col-2">$39 (USD)</td>
+        <td class="col-2">$57 (USD)</td>
+        <td class="col-2">$75 (USD)</td>
+      </tr>
+            <tr class="row">
+        <td class="col-6 pl-5">Smart NICOP Modification</td>
+        <td class="col-2">$39 (USD)</td>
+        <td class="col-2">$57 (USD)</td>
+        <td class="col-2">$75 (USD)</td>
+      </tr>
+            <tr class="row">
+        <td class="col-6 pl-5">Smart NICOP Duplicate</td>
+        <td class="col-2">$39 (USD)</td>
+        <td class="col-2">$57 (USD)</td>
+        <td class="col-2">$75 (USD)</td>
+      </tr>
+            <tr class="row">
+        <td class="col-6 pl-5">Smart NICOP Renewal</td>
+        <td class="col-2">$39 (USD)</td>
+        <td class="col-2">$57 (USD)</td>
+        <td class="col-2">$75 (USD)</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+                                                          
+  <div class="table-responsive">          
+  <table class="table table-hover table-bordered table-striped table-dark">
+
+        <thead>
+      <tr class="row">
+        <th class="col-6 pl-5">Categories/Type</th>
+        <th class="col-6 pl-50">Services</th>
+      </tr>
+      <tr class="row">
+        <th class="col-6 pl-5">Zone B</th>
+        <th class="col-2">Normal(USD)</th>
+        <th class="col-2">Urgent(USD)</th>
+        <th class="col-2">Executive(USD)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="row">
+        <td class="col-6 pl-5">New NICOP</td>
+        <td class="col-2">$17 (USD)</td>
+        <td class="col-2">$27 (USD)</td>
+        <td class="col-2">$37 (USD)</td>
+      </tr>
+       <tr class="row">
+        <td class="col-6 pl-5">NICOP Modification</td>
+        <td class="col-2">$17 (USD)</td>
+        <td class="col-2">$27 (USD)</td>
+        <td class="col-2">$37 (USD)</td>
+      </tr>
+      <tr class="row">
+        <td class="col-6 pl-5">NICOP Duplicate</td>
+        <td class="col-2">$17 (USD)</td>
+        <td class="col-2">$27 (USD)</td>
+        <td class="col-2">$37 (USD)</td>
+      </tr>
+      <tr class="row">
+        <td class="col-6 pl-5">NICOP Renewal</td>
+        <td class="col-2">$17 (USD)</td>
+        <td class="col-2">$27 (USD)</td>
+        <td class="col-2">$37 (USD)</td>
+      </tr>
+      <tr class="row">
+        <td class="col-6 pl-5">New Smart NICOP</td>
+        <td class="col-2">$20 (USD)</td>
+        <td class="col-2">$30 (USD)</td>
+        <td class="col-2">$40 (USD)</td>
+      </tr>
+            <tr class="row">
+        <td class="col-6 pl-5">Smart NICOP Modification</td>
+        <td class="col-2">$20 (USD)</td>
+        <td class="col-2">$30 (USD)</td>
+        <td class="col-2">$40 (USD)</td>
+      </tr>
+            <tr class="row">
+        <td class="col-6 pl-5">Smart NICOP Duplicate</td>
+        <td class="col-2">$20 (USD)</td>
+        <td class="col-2">$30 (USD)</td>
+        <td class="col-2">$40 (USD)</td>
+      </tr>
+            <tr class="row">
+        <td class="col-6 pl-5">Smart NICOP Renewal</td>
+        <td class="col-2">$20 (USD)</td>
+        <td class="col-2">$30 (USD)</td>
+        <td class="col-2">$40 (USD)</td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+</div>
+
+<div class="container">
+  <h2>For clearance of Multiple/duplicate:</h2>                                                                                      
+  <div class="table-responsive">          
+  <table class="table table-hover table-bordered table-striped table-dark">
+    <thead>
+      <tr class="row">
+        <th class="col-6 pl-5">Criteria/Description</th>
+        <th class="col-3"></th>
+        <th class="col-3"></th>
+      </tr>
+       <tr class="row">
+        <th class="col-6 pl-5">Zone B</th>
+        <th class="col-3">Fee</th>
+        <th class="col-3">Region</th>
+      </tr>
+    </thead>
+    <tbody>
+                  <tr class="row">
+        <th class="col-6 pl-5">Similar Particular or particular with slight difference</th>
+        <th class="col-3">$10 (USD)</th>
+        <th class="col-3">Zone (A,B)</th>
+      </tr>
+             <tr class="row">
+        <th class="col-6 pl-5">With different particular</th>
+        <th class="col-3">$250 (USD)</th>
+        <th class="col-3">Zone A countries</th>
+      </tr>
+             <tr class="row">
+        <th class="col-6 pl-5">With different particular</th>
+        <th class="col-3">$120 (USD)</th>
+        <th class="col-3">Zone B countries</th>
+      </tr>
+             <tr class="row">
+        <th class="col-6 pl-5">Similar particular or particular with slight difference</th>
+        <th class="col-3">Rs.1000</th>
+        <th class="col-3">Inland</th>
+      </tr>
+             <tr class="row">
+        <th class="col-6 pl-5">With different particular</th>
+        <th class="col-3">Rs.10,000</th>
+        <th class="col-3">Inland</th>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+</div>
+<div class="container" style="background-color: white;border: 3px;">
+<h4><b>Procedure of Multiple/duplicate (International):</b></h4>
+<ul>
+  <li>
+    Affidavit/declaration as per attached specimen (attested from Pak Mission).
+  </li>
+  <li>
+    Surrendered Card Image (cut in 2 pieces) or FIR/Lost Report
+  </li>
+  <li>
+    Applicant will deposit the fee in NADRA online account .
+    <ol>
+      <li>
+        Habib Bank Limited : <b>Foreign Office Branch,Islamabad</b>
+      </li>
+      <li>
+        IBAN No : <b>PK45 HABB 0004 6000 5101 0801</b>
+      </li>
+      <li>
+        Swift Code : <b>HABBPKKA</b>
+      </li>
+    </ol>
+  </li>
+  <li>
+    The applicants can directly forward their affidavits and fee receipt through an email at dup.op@nadra.gov.pk for further processing.
+  </li>
+</ul>
+</div>
+</body>
+<footer style="position: static;">
+  <div id="media">
+  <nav class="navbar fixed-bottom navbar-expand-sm bg-transparent navbar-dark" >
+   <ul class="navbar-nav ml-auto">
+            <li class="nav-item">     
+          <a href="#" class="fa fa-facebook"></a>
+            </li>
+            <li class="nav-item">
+            <a href="#" class="fa fa-twitter"></a>
+            </li>
+            <li class="nav-item">
+            <a href="#" class="fa fa-google"></a>
+            </li>
+    </ul>
+  </nav>
+</div>
+</footer>
+</html>
