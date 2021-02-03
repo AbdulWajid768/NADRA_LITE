@@ -1,0 +1,5 @@
+DATABASEIP = 'localhost'
+DB_USER = 'root'
+DB_PASSWORD = '12345'
+DATABASE = 'nadra'
+SECRET_KEY = 'A0Zr98j/3yX R~XHH!jmN]LWX/,?RT'
